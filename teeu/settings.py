@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/2.0/ref/settings/
 
 import os
 import psycopg2.extensions
+import dj_database_url
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,9 +25,36 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'n-obtmnn#*0+qp0pr4s(#enmqu@kjj2k$p)9!$$#e(a2fbbj3r'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+if os.environ.get('ENV') == 'PRODUCTION':
 
-ALLOWED_HOSTS = []
+    DEBUG = False
+    # Static files settings
+
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+
+    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+
+
+    # Extra places for collectstatic to find static files.
+
+    STATICFILES_DIRS = (
+
+        os.path.join(PROJECT_ROOT, 'static'),
+
+    )
+
+    # Simplified static file serving.
+    # https://warehouse.python.org/project/whitenoise/
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    db_from_env = dj_database_url.config(conn_max_age=500)
+
+    DATABASES['default'].update(db_from_env)
+else:
+
+    DEBUG = True
+
+ALLOWED_HOSTS = ['teeu.herokuapp.com']
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # Application definition
@@ -43,6 +71,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
