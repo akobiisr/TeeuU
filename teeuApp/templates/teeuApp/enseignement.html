@@ -1,0 +1,477 @@
+
+{% extends "teeuApp/base.html" %}
+
+{% load static %}
+
+{% block menu %}
+				<!-- Lower Header -->
+				<div id="lower-header">
+					
+					<div class="container">
+					
+					<div id="menu-button">
+						<div>
+						<span></span>
+						<span></span>
+						<span></span>
+						</div>
+						<span>Menu</span>
+					</div>
+					<ul id = "tabdebut">
+					
+					<ul id="navigation">
+						
+						<!-- Home -->
+						<li class="home-button ">
+						
+							<a href="{% url 'index'%}"><i class="icons icon-home"></i></a>
+							
+							
+						</li>
+						<!-- /Home -->
+						
+						<!-- Pages -->
+						<li>
+						
+							<span>A propos de nous</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'presentation' %}">Qui sommes nous ?</a></li>
+								<li><a href="{% url 'Organisation' %}">Notre Organisation</a></li>
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								<li><a href="{% url 'Contact' %}">Nous Contacter</a></li>
+								
+							</ul>
+							
+						</li>
+						<!-- /Pages -->
+						
+						<li class="current-menu-item">
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'galerie' %}">Galerie</a></li>	
+								<li><a href="{% url 'Enseignements' %}">Enseignements</a></li>	
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								
+							</ul>
+							
+						</li>
+						<!-- Galerie -->
+						
+						<!-- Galerie -->
+
+						<!-- /Get Involved -->
+						<!-- Events -->
+						
+						<!-- /Events -->
+						
+						<!-- Media -->
+					<!--	<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								
+										<li><a href="ecouter.php"> Ecouter la parole</a></li>
+										<li><a href="regarder.php"> Regarder les videos</a></li>
+										<li><a href="galerie.php">Gallerie</a></li>
+										<li><a href="librairie.php">Notre librairie</a></li>
+								
+						
+							</ul>
+							
+						</li>-->
+						<!-- /Media -->
+						
+						
+						
+						
+						<li >
+							<a href="{% url 'evenements' %}">Nos Evenements</a>
+						</li> 
+						
+						
+						<!-- Features -->
+						<!--<li >
+						
+							<span>Features</span>
+							
+							<ul>
+							
+								<li><a href="features-typography.html">Typography</a></li>
+								<li><a href="features-shortcodes.html">Shortcodes</a></li>
+								
+							</ul>
+							
+						</li> -->
+						<!-- /Features -->
+						
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'pain' %}">Pain quotidien </a>
+									
+						</li>
+						<!-- /Blog -->
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'discussion' %}">Discussion </a>
+									
+						</li>
+						<!-- /Blog -->
+
+						
+						<!-- Shop -->
+						<!--<li >
+						
+							
+							
+								<a href="shop-frontpage.html">Notre librairie</a>
+								
+								
+							
+						</li>
+						 /Shop -->
+						
+						<!-- Donate -->
+						<li class="donate-button ">
+							<span>Donation</span>
+							<ul>
+							<li><a href="{% url 'don' %}">Faire un don</a></li>
+							<li><a href="{% url 'implique' %}">Impliquez-vous</a></li>
+							</ul>
+						</li>
+						<!-- /Donate -->
+						
+					</ul>
+
+				</ul>
+					
+					</div>
+					
+				</div>
+				<!-- /Lower Header -->
+				{% endblock %}
+				
+			
+			{% block content %}
+		<section id="content">	
+			
+			<!-- Page Heading -->
+			<section class="section page-heading animate-onscroll">
+				
+				<h1>Ecouter les enseignements</h1>
+				<p class="breadcrumb"><a href="{% url 'index'%}">Accueil</a> / Ecouter les enseignements</p>
+				
+			</section>
+			<!-- Page Heading -->
+			
+
+			
+			<!-- Section -->
+
+			
+			<section class="section full-width-bg gray-bg">
+				
+				<div class="row">
+				
+					<div class="col-lg-9 col-md-9 col-sm-8 col-lg-push-3 col-md-push-3 col-sm-push-4">
+						
+						
+						<div class="media-items row">
+
+							{% for pred in predications %}
+
+							<div class="col-lg-4 col-md-6 col-sm-12 mix category-photos">
+															<!-- Media Item -->
+							<div class="media-item animate-onscroll div-item-pred">
+								
+								
+								
+								<div class="blog-post item-play">
+										
+									<div class="post-image">
+										<img src="{{pred.image_dispaly.url}}" alt="">
+
+									</div>
+									
+									<h4 class="post-title"><a href="">{{pred.titre}}</a></h4>
+									
+									<div class="post-meta m_bottom_25">
+										<span class="span-pred">{{pred.date_pred}} · {{pred.Titre_predicateur}}</span>
+										<br>
+										<span><a href="#">{{pred.predicateur}}</a></span>
+									</div>
+									
+									<div class="post-action icon-align-play">
+										{% if pred.genre == "video" %}
+										<a href="../Watch?id={{pred.id}}" >
+										<div class="action-icon">
+											<span><i class="icon-videocam"></i></span>
+										</div>
+										</a>
+										{% endif%}
+
+										{% if pred.genre == "Audio" %}
+										<a href="../Watch?id={{pred.id}}">
+										<div class="action-icon">
+											<span><i class="icon-headphones"></i></span>
+										</div>
+										</a>
+										{% endif%}
+
+										<a class ="a-div" href="{{pred.predication.url}}" download>
+										<div class="action-icon">
+											<span> <i class="icon-download"></i></span>
+										</div>
+										</a>
+										<!--<div class="action-icon">
+											<span><i class="icon-download"></i></span>
+										</div>
+										<div class="action-icon">
+											<span><i class="icon-book"></i></span>
+										</div>-->
+									</div>
+									
+								</div>
+
+								
+																
+							</div>
+
+							<!-- /Media Item -->							
+							</div>
+							{% endfor %}
+
+								</div>
+																
+							
+						
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+							
+						
+						{% if predications.has_other_pages %}
+						<div class="animate-onscroll">
+						
+							<div class="divider"></div>
+							
+							<div class="numeric-pagination">
+								{% if predications.has_previous%}
+								<a href="?page={{predications.previous_page_number}}" class="button"><i class="icons icon-left-dir"></i></a>
+
+								{% else %}
+								{% endif %}
+
+								{% for i in predications.paginator.page_range %}
+									{% if predications.number == i %}
+									<a href="#" class="button active-button">{{i}}</a>
+									{% else %}
+									<a href="?page={{i}}" class="button">{{i}}</a>
+
+									{% endif %}
+								{% endfor %}
+								
+								{% if predications.has_next %}
+								<a href="?page={{predications.next_page_number}}" class="button"><i class="icons icon-right-dir"></i></a>
+								{% else %}
+
+								{% endif %}
+								
+							</div>
+						
+						</div>
+						
+						{% endif %}
+						
+						
+					</div>
+					
+					
+					
+					
+
+
+
+					
+					<!-- Sidebar -->
+					<div class="col-lg-3 col-md-3 col-sm-4 col-lg-pull-9 col-md-pull-9 col-sm-pull-8 sidebar">
+						
+												<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="#">
+								<i class="icons icon-calendar"></i>
+								<h4>Find Events</h4>
+								<p>Lorem ipsum dolor sit amet</p>
+							</a>
+						</div>
+						
+						<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="#">
+								<i class="icons icon-check"></i>
+								<h4>Register to vote</h4>
+								<p>Nemo enim ipsam</p>
+							</a>
+						</div>
+						
+						<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="#">
+								<i class="icons icon-user"></i>
+								<h4>Volunteer</h4>
+								<p>Pellentesque sed dolor</p>
+							</a>
+						</div>
+						
+						<div class="banner-wrapper">
+							<div class="banner donate-banner animate-onscroll">
+							
+								<h5>Make a <strong>quick donation</strong> here</h5>
+								<form>
+								
+									<input id="donate-amount-1" type="radio" name="donate-amount">
+									<label for="donate-amount-1">$5</label>
+									
+									<input id="donate-amount-2" type="radio" name="donate-amount">
+									<label for="donate-amount-2">$25</label>
+									
+									<input id="donate-amount-3" type="radio" name="donate-amount">
+									<label for="donate-amount-3">$100</label>
+									
+									<input type="submit" value="Donate">
+									
+								</form>
+							</div>
+						</div>						<div class="social-media animate-onscroll">
+							<span class="small-caption">Get connected:</span>
+							<ul class="social-icons">
+								<li class="facebook"><a href="#" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+								<li class="twitter"><a href="#" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+								<li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li>
+								<li class="youtube"><a href="#" class="tooltip-ontop" title="Youtube"><i class="icons icon-youtube-1"></i></a></li>
+								<li class="flickr"><a href="#" class="tooltip-ontop" title="Flickr"><i class="icons icon-flickr-4"></i></a></li>
+								<li class="email"><a href="#" class="tooltip-ontop" title="Email"><i class="icons icon-mail"></i></a></li>
+							</ul>
+							<ul class="social-buttons">
+								<li>
+									<iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35" style="border:none; overflow:hidden; height:21px; padding-top:1px; width:50px;"></iframe>
+								</li>
+								<li class="facebook-share">
+									<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
+								</li>
+								<li class="twitter-share">
+									<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+								</li>
+							</ul>
+						</div>						<!-- Featured Video -->
+						<div class="sidebar-box white featured-video animate-onscroll">
+							<h3>Featured Video</h3>
+							<iframe width="560" height="315" src="http://www.youtube.com/embed/FBorRZnqtMo?wmode=transparent" allowfullscreen></iframe>
+							<a href="#" class="button transparent button-arrow">More videos</a>
+						</div>
+						<!-- /Featured Video -->						<!-- Upcoming Events -->
+						<div class="sidebar-box white animate-onscroll">
+							<h3>Upcoming Events</h3>
+							<ul class="upcoming-events">
+							
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">25</span>
+											<span class="month">DEC</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">5</span>
+											<span class="month">JAN</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">8</span>
+											<span class="month">JAN</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+							</ul>
+							<a href="#" class="button transparent button-arrow">More events</a>
+						</div>
+						<!-- /Upcoming Events -->						<!-- Image Banner -->
+						<div class="sidebar-box image-banner animate-onscroll">
+							<a href="issues.html">
+								<img src="img/main-issues.jpg" alt="">
+								<h3>The main issues</h3>
+								<span class="button transparent button-arrow">Find out more</span>
+							</a>
+						</div>
+						<!-- /Image Banner -->						
+					</div>
+					<!-- /Sidebar -->
+					
+					
+					
+				
+				</div>
+				
+			</section>
+			<!-- /Section -->
+		
+		</section>
+
+
+
+			{% endblock %}

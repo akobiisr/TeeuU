@@ -1,0 +1,31 @@
+{% load static %}
+
+<link href="{% static 'teeuApp/css/mystyle.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'teeuApp/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+{% block content %}
+
+<body class="body-sign">
+    <div class="signUpBox">
+        <img src="{% static 'teeuApp/img/logoEEU2.jpeg' %}" class="img-rounded user">
+        <h2> Connectez-vous ici</h2>
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+               {% for field in form %}
+                <p>{{ field.label_tag }}</p>
+                {{ field }}
+                {% if field.help_text %}
+                  <small style="color: #efed40;">{{ field.help_text }}</small>
+                {% endif %}
+
+                {% for error in field.errors %}
+                  <p style="color: red">{{ error }}</p>
+                {% endfor %}
+               {% endfor %}
+             
+            <input type="submit" name="" value="Connexion">
+        </form>
+    </div>
+</body>
+
+{% endblock content %}

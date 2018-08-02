@@ -1,0 +1,880 @@
+
+{% extends "teeuApp/base.html" %}
+
+{% load static %}
+				
+				{% block menu %}
+				<!-- Lower Header -->
+				<div id="lower-header">
+					
+					<div class="container">
+					
+					<div id="menu-button">
+						<div>
+						<span></span>
+						<span></span>
+						<span></span>
+						</div>
+						<span>Menu</span>
+					</div>
+					<ul id = "tabdebut">
+					
+					<ul id="navigation">
+						
+						<!-- Home -->
+						<li class="home-button ">
+						
+							<a href="{% url 'index'%}"><i class="icons icon-home"></i></a>
+							
+							
+						</li>
+						<!-- /Home -->
+						
+						<!-- Pages -->
+						<li>
+						
+							<span>A propos de nous</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'presentation' %}">Qui sommes nous ?</a></li>
+								<li><a href="{% url 'Organisation' %}">Notre Organisation</a></li>
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								<li><a href="{% url 'Contact' %}">Nous Contacter</a></li>
+								
+							</ul>
+							
+						</li>
+						<!-- /Pages -->
+						
+						<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'galerie' %}">Galerie</a></li>	
+								<li><a href="{% url 'Enseignements' %}">Enseignements</a></li>	
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								
+							</ul>
+							
+						</li>
+						<!-- Galerie -->
+						
+						<!-- Galerie -->
+
+						<!-- /Get Involved -->
+						<!-- Events -->
+						
+						<!-- /Events -->
+						
+						<!-- Media -->
+					<!--	<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								
+										<li><a href="ecouter.php"> Ecouter la parole</a></li>
+										<li><a href="regarder.php"> Regarder les videos</a></li>
+										<li><a href="galerie.php">Gallerie</a></li>
+										<li><a href="librairie.php">Notre librairie</a></li>
+								
+						
+							</ul>
+							
+						</li>-->
+						<!-- /Media -->
+						
+						
+						
+						
+						<li class="current-menu-item">
+							<a href="{% url 'evenements' %}">Nos Evenements</a>
+						</li> 
+						
+						
+						<!-- Features -->
+						<!--<li >
+						
+							<span>Features</span>
+							
+							<ul>
+							
+								<li><a href="features-typography.html">Typography</a></li>
+								<li><a href="features-shortcodes.html">Shortcodes</a></li>
+								
+							</ul>
+							
+						</li> -->
+						<!-- /Features -->
+						
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'pain' %}">Pain quotidien </a>
+									
+						</li>
+						<!-- /Blog -->
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'discussion' %}">Discussion </a>
+									
+						</li>
+						<!-- /Blog -->
+
+						
+						<!-- Shop -->
+						<!--<li >
+						
+							
+							
+								<a href="shop-frontpage.html">Notre librairie</a>
+								
+								
+							
+						</li>
+						 /Shop -->
+						
+						<!-- Donate -->
+						<li class="donate-button ">
+							<span>Donation</span>
+							<ul>
+							<li><a href="{% url 'don' %}">Faire un don</a></li>
+							<li><a href="{% url 'implique' %}">Impliquez-vous</a></li>
+							</ul>
+						</li>
+						<!-- /Donate -->
+						
+					</ul>
+
+				</ul>
+					
+					</div>
+					
+				</div>
+				<!-- /Lower Header -->
+				{% endblock %}
+{% block content %}
+			
+		<section id="content">	
+			
+			<!-- Page Heading -->
+			<section class="section page-heading animate-onscroll">
+				
+				<h1>Calendrier des Evenement</h1>
+				<p class="breadcrumb"><a href="{% url 'index' %}">Accueil</a> / Calendrier des evenement</p>
+				
+			</section>
+			<!-- Page Heading -->
+			
+
+			
+			<!-- Section -->
+			<section class="section full-width-bg gray-bg">
+				
+				<div class="row">
+				
+				
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						
+						
+						<form class="white-box animate-onscroll">
+							
+							<h5>Find events</h5>
+							
+							<div class="inline-inputs">
+								
+								<div class="col-lg-3 col-md-3 col-sm-4">
+									<input type="text" placeholder="Select date">
+								</div>
+								
+								<div class="col-lg-7 col-md-7 col-sm-5">
+									<input type="text" placeholder="Search">
+								</div>
+								
+								<div class="col-lg-2 col-md-2 col-sm-3">
+									<button class="medium"><i class="icons icon-search"></i> Find Events</button>
+								</div>
+								
+							</div>
+							
+						</form>
+						
+						
+						<!-- Events Calendar -->
+						<div class="events-calendar">
+							
+							<!-- Events Calendar Header -->
+							<div class="calendar-header animate-onscroll">
+								
+								<div class="row">
+									
+									<div class="col-lg-6 col-md-6 col-sm-6">
+										<h3>Events for january 2014</h3>
+									</div>
+									
+									<div class="col-lg-6 col-md-6 col-sm-6 align-right">
+										<label>View As:</label>
+										<ul class="filter-dropdown">
+											<li><span>All</span>
+												<ul>
+													<li class="filter" data-filter="all">All</li>
+													<li class="filter" data-filter=".category-campaign">Campaign</li>
+													<li class="filter" data-filter=".category-meetings">Meetings</li>
+													<li class="filter" data-filter=".category-videos">Videos</li>
+													<li class="filter" data-filter=".category-photos">Photos</li>
+												</ul>
+											</li>
+										</ul>
+									</div>
+									
+								</div>
+								
+							</div>
+							<!-- /Events Calendar Header -->
+							
+							
+							<div class="sidebar-box comments-box white animate-onscroll">
+							
+							<h3>Calendar</h3>
+							
+							<div class="responsive-calendar sidebar-calendar">
+						
+								<div class="controls">
+									<a class="pull-left" data-go="prev"><div class="btn"><i class="icons icon-left-dir"></i></div></a>
+									<h4><span data-head-month></span> <span data-head-year></span></h4>
+									<a class="pull-right" data-go="next"><div class="btn"><i class="icons icon-right-dir"></i></div></a>
+								</div>
+								
+								<div class="day-headers">
+									<div class="day header">M</div>
+									<div class="day header">T</div>
+									<div class="day header">W</div>
+									<div class="day header">T</div>
+									<div class="day header">F</div>
+									<div class="day header">S</div>
+									<div class="day header">S</div>
+								</div>
+								
+								<div class="days" data-group="days">
+								<!-- the place where days will be generated -->
+									
+								</div>
+								
+							</div>
+							
+						</div>
+
+
+
+
+
+
+							<table class="event-calendar animate-onscroll">
+								
+								<tr class="calendar-days">
+									<th>Monday</th>
+									<th>Tuesday</th>
+									<th>Wednesday</th>
+									<th>Thursday</th>
+									<th>Friday</th>
+									<th>Saturday</th>
+									<th>Sunday</th>
+								</tr>
+								
+								<tr>
+									<td class="not-this-month"></td>
+									<td class="not-this-month"></td>
+									<td class="no-events"><span class="day">1</span></td>
+									<td>
+										<span class="day">2</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Sed in lacus ut enim</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Sed in lacus ut enim</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail.jpg" alt="" class="align-left">
+												<p>Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque... Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae...</p>
+												
+											</div>
+											</li>
+											<li>
+												<a href="event-post-v1.html">Integer rutrum ante...</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Integer rutrum ante...</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Vestibulum libero</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Vestibulum libero</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail3.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+
+
+
+									<td class="no-events"><span class="day">3</span></td>
+									<td class="no-events"><span class="day">4</span></td>
+									<td class="no-events"><span class="day">5</span></td>
+								</tr>
+								
+								<tr>
+									<td>
+										<span class="day">6</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Nemo enim ipsam</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Nemo enim ipsam</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Voluptatem quia...</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Voluptatem quia...</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail3.jpg" alt="" class="align-left">
+												<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td class="no-events"><span class="day">7</span></td>
+									<td>
+										<span class="day">8</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Pellentesque sed do...</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Pellentesque sed do...</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail.jpg" alt="" class="align-left">
+												<p> Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td>
+										<span class="day">9</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Aliquam dapibus</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Aliquam dapibus</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Tincidunt metus</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Tincidunt metus</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail3.jpg" alt="" class="align-left">
+												<p>Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td class="no-events"><span class="day">10</span></td>
+									<td>
+										<span class="day">11</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Donec sit amet eros</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Donec sit amet eros</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Lorem ipsum dolor</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Lorem ipsum dolor</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Sit amet consectetu...</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Sit amet consectetu...</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail3.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Adipiscing elit</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Adipiscing elit</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail.jpg" alt="" class="align-left">
+												<p>Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td class="no-events"><span class="day">12</span></td>
+								</tr>
+								
+								<tr>
+									<td class="no-events"><span class="day">13</span></td>
+									<td>
+										<span class="day">14</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Donec porta diam eu </a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Donec porta diam eu</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail.jpg" alt="" class="align-left">
+												<p>Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td>
+										<span class="day">15</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Duis ac turpis</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Duis ac turpis</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Donec sit amet eros</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Donec sit amet eros</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail3.jpg" alt="" class="align-left">
+												<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Lorem ipsum dolor</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Lorem ipsum dolor</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td class="no-events"><span class="day">16</span></td>
+									<td>
+										<span class="day">17</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Aenean auctor wisi</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Aenean auctor wisi</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td class="no-events"><span class="day">18</span></td>
+									<td>
+										<span class="day">19</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Mauris fermentum...</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Mauris fermentum...</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Dictum magna</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Dictum magna</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail3.jpg" alt="" class="align-left">
+												<p>Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+								</tr>
+								
+								<tr>
+									<td>
+										<span class="day">20</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Ut tellus dolor, dapib...</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Ut tellus dolor, dapib...</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Eget elementum vel</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Eget elementum vel</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Cursus eleifend</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Cursus eleifend</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail3.jpg" alt="" class="align-left">
+												<p>Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+										</li>
+											<li>
+												<a href="event-post-v1.html">Aenean auctor wisi...</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Aenean auctor wisi...</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td class="no-events"><span class="day">21</span></td>
+									<td class="no-events"><span class="day">22</span></td>
+									<td class="no-events"><span class="day">23</span></td>
+									<td>
+										<span class="day">24</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Sed ut perspiciatis</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Sed ut perspiciatis</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail3.jpg" alt="" class="align-left">
+												<p>Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+											<li>
+												<a href="event-post-v1.html">Unde omnis</a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Unde omnis</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail2.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel, scelerisque eget, malesuada at, neque. Vivamus eget nibh. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td class="no-events"><span class="day">25</span></td>
+									<td class="no-events"><span class="day">26</span></td>
+								</tr>
+								
+								<tr>
+									<td class="no-events"><span class="day">27</span></td>
+									<td class="no-events"><span class="day">28</span></td>
+									<td>
+										<span class="day">29</span>
+										<ul class="events">
+											<li>
+												<a href="event-post-v1.html">Fusce euismod </a>
+												
+											<div class="event-popover">
+												
+												<h6><a href="event-post-v1.html">Fusce euismod</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+													<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+												</ul>
+												
+												<img src="img/events/event1-thumbnail.jpg" alt="" class="align-left">
+												<p>Ut tellus dolor, dapibus eget, elementum vel, cursus eleifend, elit. Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Etiam cursus leo vel metus. </p>
+												
+											</div>
+																					</li>
+										</ul>
+									</td>
+									<td class="no-events"><span class="day">30</span></td>
+									<td class="no-events"><span class="day">31</span></td>
+									<td class="not-this-month"></td>
+									<td class="not-this-month"></td>
+								</tr>
+								
+							</table>
+							
+							<div class="row">
+						
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 align-left animate-onscroll">
+									<a href="#" class="button big button-arrow-before">December</a>
+								</div>
+								
+								<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 align-right animate-onscroll">
+									<a href="#" class="button big button-arrow">February</a>
+								</div>
+							
+							</div>
+							
+							
+						</div>
+						<!-- /Events Calendar -->
+						
+						
+					</div>
+					
+				
+				</div>
+				
+			</section>
+			<!-- /Section -->
+		
+		</section>
+
+
+<script type="text/javascript" src=" {% static 'teeuApp/js/js/js/jquery.js' %}"></script>
+<script>
+
+$( document ).ready( function() {
+  $(".responsive-calendar").responsiveCalendar({
+    time: '2018-04',
+    events: {
+      "2018-04-14": {"number": 5, "badgeClass": "badge-warning"},
+      "2018-04-15": {"number": 1, "badgeClass": "badge-warning"}, 
+      "2018-04-18": {"number": 1, "badgeClass": "badge-error"}, 
+      "2018-04-20": {},
+    "2018-04-30": {
+      "number": 6, 
+      "badgeClass": "badge-warning", 
+      
+      
+      "url": "http://w3widgets.com/responsive-calendar",
+
+      "dayEvents": [
+        {
+          "name": "Important meeting",
+          "hour": "17:30" 
+        },
+        {
+          "name": "Morning meeting at coffee house",
+          "hour": "08:15" 
+        }
+      ]
+    },
+
+  }
+
+  });
+
+});
+
+</script>
+
+
+
+			{% endblock %}

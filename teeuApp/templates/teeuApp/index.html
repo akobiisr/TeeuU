@@ -1,0 +1,866 @@
+{% extends "teeuApp/base.html" %}
+
+{% load static %}
+				
+				{% block menu %}
+				<!-- Lower Header -->
+				<div id="lower-header">
+					
+					<div class="container">
+					
+					<div id="menu-button">
+						<div>
+						<span></span>
+						<span></span>
+						<span></span>
+						</div>
+						<span>Menu</span>
+					</div>
+					<ul id = "tabdebut">
+					
+					<ul id="navigation">
+						
+						<!-- Home -->
+						<li class="home-button current-menu-item">
+						
+							<a href="{% url 'index'%}"><i class="icons icon-home"></i></a>
+							
+							
+						</li>
+						<!-- /Home -->
+						
+						<!-- Pages -->
+						<li >
+						
+							<span>A propos de nous</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'presentation' %}">Qui sommes nous ?</a></li>
+								<li><a href="{% url 'Organisation' %}">Notre Organisation</a></li>
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								<li><a href="{% url 'Contact' %}">Nous Contacter</a></li>
+								
+							</ul>
+							
+						</li>
+						<!-- /Pages -->
+						
+						<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'galerie' %}">Galerie</a></li>	
+								<li><a href="{% url 'Enseignements' %}">Enseignements</a></li>	
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								
+							</ul>
+							
+						</li>
+						<!-- Galerie -->
+						
+						<!-- Galerie -->
+
+						<!-- /Get Involved -->
+						<!-- Events -->
+						
+						<!-- /Events -->
+						
+						<!-- Media -->
+					<!--	<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								
+										<li><a href="ecouter.php"> Ecouter la parole</a></li>
+										<li><a href="regarder.php"> Regarder les videos</a></li>
+										<li><a href="galerie.php">Gallerie</a></li>
+										<li><a href="librairie.php">Notre librairie</a></li>
+								
+						
+							</ul>
+							
+						</li>-->
+						<!-- /Media -->
+						
+						
+						
+						
+						<li >
+							<a href="{% url 'evenements' %}">Nos Evenements</a>
+						</li> 
+						
+						
+						<!-- Features -->
+						<!--<li >
+						
+							<span>Features</span>
+							
+							<ul>
+							
+								<li><a href="features-typography.html">Typography</a></li>
+								<li><a href="features-shortcodes.html">Shortcodes</a></li>
+								
+							</ul>
+							
+						</li> -->
+						<!-- /Features -->
+						
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'pain' %}">Pain quotidien </a>
+									
+						</li>
+						<!-- /Blog -->
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'discussion' %}">Discussion </a>
+									
+						</li>
+						<!-- /Blog -->
+
+						
+						<!-- Shop -->
+						<!--<li >
+						
+							
+							
+								<a href="shop-frontpage.html">Notre librairie</a>
+								
+								
+							
+						</li>
+						 /Shop -->
+						
+						<!-- Donate -->
+						<li class="donate-button ">
+							<span>Donation</span>
+							<ul>
+							<li><a href="{% url 'don' %}">Faire un don</a></li>
+							<li><a href="{% url 'implique' %}">Impliquez-vous</a></li>
+							</ul>
+						</li>
+						<!-- /Donate -->
+						
+					</ul>
+
+				</ul>
+					
+					</div>
+					
+				</div>
+				<!-- /Lower Header -->
+				{% endblock %}
+				
+			<!-- /Header -->
+
+
+		<!-- Header <div = "container"-->
+		
+			
+	{% block carousel %}
+<section class="section full-width-bg brown-bg" id = "slideback">
+	<div class="row">
+				
+		<div class="col-lg-12 col-md-12 col-sm-12">
+				
+					
+				<div class="fluid_container" >
+                    <div class="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
+                        <div data-thumb="{% static 'teeuApp/img/robot.jpg' %}" data-src="{% static 'teeuApp/img/robot.jpg' %}">
+                        </div>
+
+                        <div data-thumb="{% static 'teeuApp/img/robo1.jpg' %}" data-src="{% static 'teeuApp/img/robo1.jpg' %}">
+                        </div>
+
+                        <div data-thumb="{% static 'teeuApp/img/robot1.jpg' %}" data-src="{% static 'teeuApp/img/robot1.jpg' %}">
+                        </div>
+
+                        <div data-thumb="{% static 'teeuApp/img/robot2.jpg' %}" data-src="{% static 'teeuApp/img/robot2.jpg' %}">
+                        </div> 
+
+                    </div><!-- #camera_wrap_3 -->
+                </div><!-- .fluid_container -->
+		</div>
+	</div>
+	
+
+</section>
+
+	{% endblock %}
+
+
+
+
+
+
+
+
+
+
+			<!-- /Section -->
+			
+			<!-- Section -->
+			{% block content %}
+			<section class="section full-width-bg gray-bg2">
+				
+				<div class="event-line">
+					<div class="row">
+						<div class="col-md-4 col-sm-12">
+
+							<ul class="upcoming-events style2">
+								
+								<!-- Event -->
+							
+								<li>
+									<div class="date">
+										<span>
+											{% if evenement %}
+							{% for vers in evenement %}
+							<span class="day"> {{vers.date_even|date:'d'}}</span>
+							<span class="month">{{vers.date_even|date:'M'}}</span>
+							{% endfor %}
+							{% else %}
+    						<!--<span class="day"> 00</span>
+							<span class="month">00</span>-->
+							{% endif %}
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Evenement a venir:</a></h6>
+										{% if evenement %}
+							{% for vers in evenement %}
+							<h5>{{vers.titre}} </h5>
+							{% endfor %}
+								
+									</div>
+								</li>
+								<!-- /Event -->
+								
+							</ul>
+
+						</div>
+						<div class="col-md-4 col-sm-12">
+							<div id="countdown2"></div>
+						</div>
+						<div class="col-md-4 col-sm-12">
+							<a href="participer.php" class="button big button-arrow style2">Participer</a>
+							<span>ou</span>
+							<a href="{% url 'evenements' %}" class="button transparent button-arrow">voir tous les evenement</a>
+						</div>
+					</div>
+					{% else %}
+    						<h5>Aucun evenement encours</h5>
+							{% endif %}
+				</div>
+				
+			</section>
+			<!-- /Section -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<section class="section full-width-bg gray-bg">
+				
+				<div class="row">
+				
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						
+						
+						<div class="media-items style2 row">
+							
+							<div class="col-lg-4 col-md-4 col-sm-6 mix category-photos">
+							
+								<!-- Media Item -->
+								<div class="media-item">
+									
+									<div class="media-image">
+									
+										<img src="{% static 'teeuApp/img/362_242_img1.jpg' %}" alt="">
+									
+									</div>
+									
+																	
+									<div class="media-info">
+									
+										<div class="media-header">
+											
+											<h2><a href="{% url 'presentation' %}#Bienvenue">Bienvenue</a></h2>
+											
+										</div>
+										
+										<div class="media-description">
+											<p>La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire.</p>
+										</div>
+										
+										<div class="media-button">
+											<a href="{% url 'presentation' %}#Bienvenue" class="button big button-arrow">Lire plus</a>
+										</div>
+									
+									</div>
+									
+																	
+								</div>
+								<!-- /Media Item -->	
+
+							</div>
+
+							<div class="col-lg-4 col-md-4 col-sm-6 mix category-photos">
+							
+								<!-- Media Item -->
+								<div class="media-item">
+									
+									<div class="media-image">
+									
+										<img src="{% static 'teeuApp/img/362_242_img2.jpg' %}" alt="">
+									
+									</div>
+									
+																	
+									<div class="media-info">
+									
+										<div class="media-header">
+											
+											<h2><a href="{% url 'presentation' %}#Vision">Notre vision </a></h2>
+											
+										</div>
+										
+										<div class="media-description">
+											<p> La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire.   </p>
+										</div>
+										
+										<div class="media-button">
+											<a href="{% url 'presentation' %}#Vision" class="button big button-arrow">Lire plus</a>
+										</div>
+									
+									</div>
+									
+																	
+								</div>
+								<!-- /Media Item -->	
+
+							</div>
+
+							<div class="col-lg-4 col-md-4 col-sm-6 mix category-photos">
+							
+								<!-- Media Item -->
+								<div class="media-item">
+									
+									<div class="media-image">
+									
+										<img src="{% static 'teeuApp/img/362_242_img3.jpg' %}" alt="">
+									
+									</div>
+									
+																	
+									<div class="media-info">
+									
+										<div class="media-header">
+											
+											<h2><a href="{% url 'presentation' %}#Mission">Notre mission</a></h2>
+											
+										</div>
+										
+										<div class="media-description">
+											<p>La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire.  </p>
+										</div>
+							
+										<div class="media-button">
+											<a href="{% url 'presentation' %}#Mission" class="button big button-arrow lire-plus">Lire plus</a>
+										</div>
+									
+									</div>
+									
+																	
+								</div>
+								<!-- /Media Item -->	
+
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+
+
+
+				<div class="row sermons-section">
+					
+					<div class="col-sm-6">
+
+						<h2>Les derniers enseignements</h2>
+						<div class="row">
+
+							{% if predication %}
+								{% for pred in predication %}
+							<div class="col-sm-6">
+
+								<div class="blog-post">
+										
+									<div class="post-image">
+										<img src="{{pred.image_dispaly.url}}" alt="">
+
+									</div>
+									
+									<h4 class="post-title"><a href="{% url 'play'  %}">{{pred.titre}}</a></h4>
+									
+									<div class="post-meta m_bottom_25">
+										<span>{{pred.date_pred}} · {{pred.Titre_predicateur}}</span>
+										<span><a href="#">{{pred.predicateur}}</a></span>
+									</div>
+									
+									<div class="post-action icon-align">
+										{% if pred.genre == "video" %}
+										
+											<a href="Watch?id={{pred.id}}">
+										
+										<div class="action-icon">
+											<span><i class="icon-videocam"></i></span>
+										</div>
+										</a>
+
+										{% endif%}
+
+										{% if pred.genre == "Audio" %}
+										
+											<a href="{% url 'play' %}">
+										
+										
+										<div class="action-icon">
+											<span><i class="icon-headphones"></i></span>
+										</div>
+										</a>
+										{% endif%}
+
+										<a class ="a-div" href="{{pred.predication.url}}" download>
+										<div class="action-icon">
+											<span> <i class="icon-download"></i></span>
+										</div>
+										</a>
+										<!--<div class="action-icon">
+											<span><i class="icon-download"></i></span>
+										</div>
+										<div class="action-icon">
+											<span><i class="icon-book"></i></span>
+										</div>-->
+										
+									</div>
+									
+								</div>
+
+							</div>
+							{% endfor%}
+							{% else %}
+							<a href=""> bonjour</a>
+							{% endif %}
+							
+
+
+
+
+
+
+							<div class="col-sm-6">
+								
+								<ul class="upcoming-events var2">
+							
+									{% if predication2 %}
+									{% for pred in predication2 %}
+
+									<!-- Event -->
+									<li>
+										<div class="blog-post">
+											
+											<h4 class="post-title no-margin-top"><a href="blog-single-sidebar.html">{{pred.titre}}</a></h4>
+											
+											<div class="post-meta">
+												<span>{{pred.date_pred}} · {{pred.Titre_predicateur}}</span>
+												<span><a href="#">{{pred.predicateur}}</a></span>
+											</div>
+											
+											<div class="post-action var2 ">
+										{% if pred.genre == "video" %}
+										<a href="Watch?id={{pred.id}}">
+										<div class="action-icon">
+											<span><i class="icon-videocam"></i></span>
+										</div>
+										</a>
+										{% endif%}
+
+										{% if pred.genre == "Audio" %}
+										<a href="Watch?id={{pred.id}}">
+										<div class="action-icon">
+											<span><i class="icon-headphones"></i></span>
+										</div>
+										</a>
+										{% endif%}
+
+										
+										<a href="{{pred.predication.url}}" download>
+										<div class="action-icon">
+											<span> <i class="icon-download"></i> </span>
+										</div>
+										</a>
+												<!--<div class="action-icon transparent">
+													<span><i class="icon-download"></i></span>
+												</div>
+												-->
+											</div>
+											
+										</div>
+									</li>
+									<!-- /Event -->
+									
+										{% endfor%}
+										{% else %}
+										<a href=""> bonjour</a>
+										{% endif %}
+
+									
+								</ul>
+
+								<a href="{% url 'Enseignements' %}" class="button transparent button-arrow">Plus d'enseignements</a>
+
+							</div>
+						</div>
+
+					</div>
+
+
+
+					{% if evenement %}
+
+					{% for event in evenement %}
+
+					<div class="col-sm-6">
+
+						<h2>Evenement a venir</h2>
+						<div class="row">
+							<div class="col-sm-6">
+
+								<div class="blog-post">
+										
+									<div class="post-image m_bottom_20">
+										<img src="{{event.image.url}}" alt="">
+									</div>
+									
+									<ul class="upcoming-events">
+							
+										<!-- Event -->
+										<li>
+											<div class="date">
+												<span>
+													<span class="day">{{event.date_even|date:'d'}}</span>
+													<span class="month">{{event.date_even|date:'M'}}</span>
+												</span>
+											</div>
+											
+											<div class="event-content">
+												<h6><a href="event-post-v2.html">{{event.titre}}</a></h6>
+												<ul class="event-meta">
+													<li><i class="icons icon-clock"></i> {{event.date_even|date:'M d, H:i'}} - {{event.date_fin|date:'M d, H:i'}}</li>
+													<li><i class="icons icon-location"></i> {{event.lieu}}</li>
+												</ul>
+											</div>
+										</li>
+										<!-- /Event -->
+									
+									</ul>
+
+									<a href="portfolio-single-sidebar.html" class="button big button-arrow">Participer</a>
+									
+								</div>
+
+							</div>
+
+							{% endfor %}
+
+							{% if list_event %}
+							<div class="col-sm-6">
+								
+								<ul class="upcoming-events var2">
+									
+							
+							{% for events in list_event %}
+								
+									<!-- Event -->
+									<li>
+										<div class="date">
+											<span>
+												<span class="day">{{events.date_even|date:'d'}}</span>
+												<span class="month">{{events.date_even|date:'M'}}</span>
+											</span>
+										</div>
+										
+										<div class="event-content">
+											<h6><a href="event-post-v2.html">{{events.titre}}</a></h6>
+											<ul class="event-meta">
+												<li><i class="icons icon-clock"></i> {{events.date_even|date:'M d, H:i'}} - {{events.date_fin|date:'M d, H:i'}}</li>
+												<li><i class="icons icon-location"></i> {{events.lieu}}</li>
+											</ul>
+										</div>
+									</li>
+									<!-- /Event -->
+									
+								{% endfor %}	
+									
+									
+									
+								</ul>
+
+								<a href="{% url 'evenements' %}" class="button transparent button-arrow">Plus d'evenements</a>
+
+							</div>
+
+							{% endif %}
+
+
+						</div>
+
+					</div>
+
+					{% else %}
+					<div class="col-sm-6">
+						<h2>Aucun evenement en a venir</h2>
+						
+						<a href="{% url 'evenements' %}" class="button transparent button-arrow passed-event">Voir les evenements passés</a>
+
+					</div>
+
+
+					{% endif %}
+
+
+
+
+				</div>
+				
+			</section>
+
+			
+
+			<section class="section full-width-bg gray-bg">
+				
+				<div class="row no-margin-bottom">
+				
+					
+					<div class="col-lg-12 col-md-12 col-sm-12">
+						
+												
+						<!-- Owl Carousel -->
+						<div class="owl-carousel-container no-margin-bottom">
+							
+							<div class="owl-header">
+								
+								<h3 class="no-margin-top animate-onscroll">Pain quotidien</h3>
+								
+								<div class="carousel-arrows animate-onscroll">
+									<span class="left-arrow"><i class="icons icon-left-dir"></i></span>
+									<span class="right-arrow"><i class="icons icon-right-dir"></i></span>
+								</div>
+								
+							</div>
+							
+							<div class="owl-carousel" data-max-items="4">
+										
+								<!-- Owl Item -->
+								<div>
+									
+									<!-- Blog Post -->
+									<div class="blog-post animate-onscroll">
+										
+										<div class="post-image">
+											<img src="{% static 'teeuApp/img/263x177_img4.jpg' %}" alt="">
+										</div>
+										
+										<h4 class="post-title"><a href="blog-single-sidebar.html">Ut pharetra augue nec augue</a></h4>
+										
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+										
+										<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel.</p>
+										
+										<a href="blog-single-sidebar.html" class="button read-more-button big button-arrow">Read More</a>
+										
+									</div>
+									<!-- /Blog Post -->
+									
+								</div>
+								<!-- /Owl Item -->
+								
+								<!-- Owl Item -->
+								<div>
+									
+									<!-- Blog Post -->
+									<div class="blog-post animate-onscroll">
+										
+										<div class="post-image">
+											<img src="{% static 'teeuApp/img/263x177_img5.jpg' %}" alt="">
+										</div>
+										
+										<h4 class="post-title"><a href="blog-single-sidebar.html">Mauris accumsan nulla vel</a></h4>
+										
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+										
+										<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel.</p>
+										
+										<a href="blog-single-sidebar.html" class="button read-more-button big button-arrow">Read More</a>
+										
+									</div>
+									<!-- /Blog Post -->
+									
+								</div>
+								<!-- /Owl Item -->
+								
+								<!-- Owl Item -->
+								<div>
+									
+									<!-- Blog Post -->
+									<div class="blog-post animate-onscroll">
+										
+										<div class="post-image">
+											<img src="{% static 'teeuApp/img/263x177_img6.jpg' %}" alt="">
+										</div>
+										
+										<h4 class="post-title"><a href="blog-single-sidebar.html">Ut pharetra augue nec augue</a></h4>
+										
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+										
+										<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel.</p>
+										
+										<a href="blog-single-sidebar.html" class="button read-more-button big button-arrow">Read More</a>
+										
+									</div>
+									<!-- /Blog Post -->
+									
+								</div>
+								<!-- /Owl Item -->
+								
+								<!-- Owl Item -->
+								<div>
+									
+									<!-- Blog Post -->
+									<div class="blog-post animate-onscroll">
+										
+										<div class="post-image">
+											<img src="{% static 'teeuApp/img/263x177_img7.jpg' %}" alt="">
+										</div>
+										
+										<h4 class="post-title"><a href="blog-single-sidebar.html">Mauris accumsan nulla vel</a></h4>
+										
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+										
+										<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel.</p>
+										
+										<a href="blog-single-sidebar.html" class="button read-more-button big button-arrow">Read More</a>
+										
+									</div>
+									<!-- /Blog Post -->
+									
+								</div>
+								<!-- /Owl Item -->
+								
+								<!-- Owl Item -->
+								<div>
+									
+									<!-- Blog Post -->
+									<div class="blog-post animate-onscroll">
+										
+										<div class="post-image">
+											<img src="{% static 'teeuApp/img/blog/post3.jpg' %}" alt="">
+										</div>
+										
+										<h4 class="post-title"><a href="blog-single-sidebar.html">Vestibulum iaculis </a></h4>
+										
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+										
+										<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel.</p>
+										
+										<a href="blog-single-sidebar.html" class="button read-more-button big button-arrow">Read More</a>
+										
+									</div>
+									<!-- /Blog Post -->
+									
+								</div>
+								<!-- /Owl Item -->
+								
+								<!-- Owl Item -->
+								<div>
+									
+									<!-- Blog Post -->
+									<div class="blog-post animate-onscroll">
+										
+										<div class="post-image">
+											<img src="{% static 'teeuApp/img/blog/post4.jpg' %}" alt="">
+										</div>
+										
+										<h4 class="post-title"><a href="blog-single-sidebar.html">Praesent justo dolor</a></h4>
+										
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+										
+										<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel.</p>
+										
+										<a href="blog-single-sidebar.html" class="button read-more-button big button-arrow">Read More</a>
+										
+									</div>
+									<!-- /Blog Post -->
+									
+								</div>
+								<!-- /Owl Item -->
+							
+							</div>
+						
+						</div>
+						<!-- /Owl Carousel -->						
+					</div>
+				
+				</div>
+				
+			</section>
+		
+		</section>
+
+{% endblock %}
+
+			

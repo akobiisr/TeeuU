@@ -1,0 +1,606 @@
+
+{% extends "teeuApp/base.html" %}
+{% load static %}
+
+{% block menu %}
+				<!-- Lower Header -->
+				<div id="lower-header">
+					
+					<div class="container">
+					
+					<div id="menu-button">
+						<div>
+						<span></span>
+						<span></span>
+						<span></span>
+						</div>
+						<span>Menu</span>
+					</div>
+					<ul id = "tabdebut">
+					
+					<ul id="navigation">
+						
+						<!-- Home -->
+						<li class="home-button ">
+						
+							<a href="{% url 'index'%}"><i class="icons icon-home"></i></a>
+							
+							
+						</li>
+						<!-- /Home -->
+						
+						<!-- Pages -->
+						<li class="current-menu-item">
+						
+							<span>A propos de nous</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'presentation' %}">Qui sommes nous ?</a></li>
+								<li><a href="{% url 'Organisation' %}">Notre Organisation</a></li>
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								<li><a href="{% url 'Contact' %}">Nous Contacter</a></li>
+								
+							</ul>
+							
+						</li>
+						<!-- /Pages -->
+						
+						<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'galerie' %}">Galerie</a></li>	
+								<li><a href="{% url 'Enseignements' %}">Enseignements</a></li>	
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								
+							</ul>
+							
+						</li>
+						<!-- Galerie -->
+						
+						<!-- Galerie -->
+
+						<!-- /Get Involved -->
+						<!-- Events -->
+						
+						<!-- /Events -->
+						
+						<!-- Media -->
+					<!--	<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								
+										<li><a href="ecouter.php"> Ecouter la parole</a></li>
+										<li><a href="regarder.php"> Regarder les videos</a></li>
+										<li><a href="galerie.php">Gallerie</a></li>
+										<li><a href="librairie.php">Notre librairie</a></li>
+								
+						
+							</ul>
+							
+						</li>-->
+						<!-- /Media -->
+						
+						
+						
+						
+						<li >
+							<a href="{% url 'evenements' %}">Nos Evenements</a>
+						</li> 
+						
+						
+						<!-- Features -->
+						<!--<li >
+						
+							<span>Features</span>
+							
+							<ul>
+							
+								<li><a href="features-typography.html">Typography</a></li>
+								<li><a href="features-shortcodes.html">Shortcodes</a></li>
+								
+							</ul>
+							
+						</li> -->
+						<!-- /Features -->
+						
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'pain' %}">Pain quotidien </a>
+									
+						</li>
+						<!-- /Blog -->
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'discussion' %}">Discussion </a>
+									
+						</li>
+						<!-- /Blog -->
+
+						
+						<!-- Shop -->
+						<!--<li >
+						
+							
+							
+								<a href="shop-frontpage.html">Notre librairie</a>
+								
+								
+							
+						</li>
+						 /Shop -->
+						
+						<!-- Donate -->
+						<li class="donate-button ">
+							<span>Donation</span>
+							<ul>
+							<li><a href="{% url 'don' %}">Faire un don</a></li>
+							<li><a href="{% url 'implique' %}">Impliquez-vous</a></li>
+							</ul>
+						</li>
+						<!-- /Donate -->
+						
+					</ul>
+
+				</ul>
+					
+					</div>
+					
+				</div>
+				<!-- /Lower Header -->
+				{% endblock %}
+			<!-- /Header -->
+
+{% block content %}
+			
+		<section id="content">	
+			
+			<!-- Page Heading -->
+			<section class="section page-heading animate-onscroll">
+				
+				<h1>Qui sommes-nous? </h1>
+				<p class="breadcrumb"><a href="{% url 'index' %}">Acceuil</a> / Qui sommes-nous </p>
+				
+			</section>
+			<!-- Page Heading -->
+			
+
+			
+			<!-- Section -->
+			<section class="section full-width-bg gray-bg">
+				
+				<div class="row">
+				
+					<div class="col-lg-9 col-md-9 col-sm-8">
+						
+						<div class="row">
+						
+							<div class="col-lg-12 col-md-12 col-sm-12">
+						
+								
+								<iframe class="animate-onscroll youtube-video" width="920" height="515" src="{% static 'teeuApp/video/2.mp4' %}" allowfullscreen></iframe>
+								<br>
+								<br>
+								<br>
+								<h3 class="animate-onscroll no-margin-top">Bienvenue</h3>
+								<p class="animate-onscroll">La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours. </p>
+
+								<h3 class="animate-onscroll no-margin-top">Notre histoire </h3>
+								<p class="animate-onscroll">La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours. </p>
+								
+								<blockquote class="align-right animate-onscroll" style="width:45%">"Nous sommes une eglise evanglegique determinee pour etendre le royaume de Dieu"</blockquote>
+								
+								<p class="animate-onscroll">La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours.</p>
+								
+								<p class="animate-onscroll">La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours. </p>
+							
+							</div>
+							
+						</div>
+
+						
+						<div class="row section-row">
+							
+							<div class="col-lg-12 col-md-12 col-sm-12">
+							
+								<h3 class="animate-onscroll no-margin-top">Nos Objectifs</h3>
+								
+								<img class="align-left animate-onscroll" src=" {% static 'teeuApp/img/263x177_img1.jpg' %}" alt="">
+								
+								<p class="animate-onscroll">La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours.</p>
+								
+								<p class="animate-onscroll">La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours.</p>
+								
+								<img class="align-right animate-onscroll" src="img/about2.jpg" alt="">
+								
+								<p class="animate-onscroll">La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours.</p>
+								
+								<p class="animate-onscroll">La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours. </p>
+								
+								<br class="clearfix">
+						
+							</div>
+						
+						</div>
+						
+						<div class="row section-row">
+							
+							<div id="Mission" class="col-lg-7 col-md-7 col-sm-12 animate-onscroll">
+								
+								<h3 class="no-margin-top">Notre mission</h3>
+								
+														<!-- Accordions -->
+						<ul class="accordions">
+								
+							<!-- Accordion -->
+							<li class="accordion">
+								
+								<div class="accordion-header">
+									<div class="accordion-icon"></div>
+									<h6>Former des leaders</h6>
+									
+								</div>
+								
+								<div class="accordion-content">
+									<p>La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. 
+									<br><br>
+									Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours.  </p>
+								</div>
+								
+							</li>
+							<!-- /Accordion -->
+							
+							<!-- Accordion -->
+							<li class="accordion">
+								
+								<div class="accordion-header">
+									<div class="accordion-icon"></div>
+									<h6>Former des leaders</h6>
+									
+								</div>
+								
+								<div class="accordion-content">
+									<p>La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. 
+									<br><br>
+									Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours.  </p>
+								</div>
+								
+							</li>
+							<!-- /Accordion -->
+							
+							<!-- Accordion -->
+							<li class="accordion">
+								
+								<div class="accordion-header">
+									<div class="accordion-icon"></div>
+									<h6>Former des leaders</h6>
+									
+								</div>
+								
+								<div class="accordion-content">
+									<p>La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. 
+								<br><br>
+									Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours.  </p>
+								</div>
+								
+							</li>
+							<!-- /Accordion -->
+							
+							<!-- Accordion -->
+							<li class="accordion">
+								
+								<div class="accordion-header">
+									<div class="accordion-icon"></div>
+									<h6>Former des leaders</h6>
+									
+								</div>
+								
+								<div class="accordion-content">
+									<p>La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. 
+								<br><br>
+									Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit  et par suite la vie éternelle avec lui pour toujours.  </p>
+								</div>
+								
+							</li>
+							<!-- /Accordion -->
+							
+						</ul>
+
+						<!-- /Accordions -->								
+							</div>
+
+
+
+
+							
+							<div id="Vision" class="col-lg-5 col-md-5 col-sm-12 animate-onscroll">
+								<h3 class="no-margin-top">Notre vision</h3>
+								
+														<!-- Owl Carousel -->
+						<div class="owl-carousel-container testimonial-carousel animate-onscroll">
+							
+														<div class="owl-carousel" data-max-items="1">
+										
+								<!-- Owl Item -->
+								<div>
+									
+									<!-- Testimonial -->
+									<div class="testimonial">
+							
+										<div class="testimonial-content">
+											<p>La Bible nous enseigne que la chaire était notre maitre, nous faisions tout ce qu’il nous demandait sans aucune force en nous pour riposter. Nous commettions  le péché ; ce qui nous maintenait dans  la rupture de notre relation avec  Dieu, la mort spirituelle et le jugement qui existaient depuis l’obéissance de Adam et Eve à la chaire. Mais Dieu, à travers la mort et la résurrection de Jésus Christ, a pourvu un chemin pour nous secourir de nos péchés et leurs conséquences. Il nous a offert une seconde chance de vivre, une opportunité d’expérimenter une nouvelle naissance en une nouvelle et abondante vie de l’esprit.
+											</p>
+										</div>
+										
+										
+										
+									</div>
+									<!-- /Testimonial -->
+									
+								</div>
+								<!-- /Owl Item -->
+								
+								<!-- Owl Item -->
+								
+								
+							
+							</div>
+							
+							
+						
+						</div>
+						<!-- /Owl Carousel -->								
+
+
+
+								
+							</div>
+
+
+
+							
+						</div>
+						
+					</div>
+					
+					
+					
+					<!-- Sidebar -->
+					<div class="col-lg-3 col-md-3 col-sm-4 sidebar">
+						
+							<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="{% url 'evenements' %}">
+								<i class="icons icon-calendar"></i>
+								<h4>Les evenements</h4>
+								<p>Calendrier des evenements</p>
+							</a>
+						</div>
+						
+						<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="{% url 'discussion' %}">
+								<i class="icons icon-check"></i>
+								<h4>Une question ?</h4>
+								<p>Exprimer vos inqietudes</p>
+							</a>
+						</div>
+						
+						<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="{% url 'implique' %}">
+								<i class="icons icon-user"></i>
+								<h4>Impliquez-vous</h4>
+								<p>partciper au developpement de l'eglise</p>
+							</a>
+						</div>
+						
+						<!--<div class="banner-wrapper">
+							<div class="banner donate-banner animate-onscroll">
+							
+								<h5>Make a <strong>quick donation</strong> here</h5>
+								<form>
+								
+									<input id="donate-amount-1" type="radio" name="donate-amount">
+									<label for="donate-amount-1">$5</label>
+									
+									<input id="donate-amount-2" type="radio" name="donate-amount">
+									<label for="donate-amount-2">$25</label>
+									
+									<input id="donate-amount-3" type="radio" name="donate-amount">
+									<label for="donate-amount-3">$100</label>
+									
+									<input type="submit" value="Donate">
+									
+								</form>
+							</div>
+						</div>-->						<div class="social-media animate-onscroll">
+							<span class="small-caption">Get connected:</span>
+							<ul class="social-icons">
+								<li class="facebook"><a href="#" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+								<li class="twitter"><a href="#" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+								<li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li>
+								<li class="youtube"><a href="#" class="tooltip-ontop" title="Youtube"><i class="icons icon-youtube-1"></i></a></li>
+								<li class="flickr"><a href="#" class="tooltip-ontop" title="Flickr"><i class="icons icon-flickr-4"></i></a></li>
+								<li class="email"><a href="#" class="tooltip-ontop" title="Email"><i class="icons icon-mail"></i></a></li>
+							</ul>
+							<ul class="social-buttons">
+								<li>
+									<iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35" style="border:none; overflow:hidden; height:21px; padding-top:1px; width:50px;"></iframe>
+								</li>
+								<li class="facebook-share">
+									<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
+								</li>
+								<li class="twitter-share">
+									<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+								</li>
+							</ul>
+						</div>						<!-- Featured Video -->
+						<div class="sidebar-box white featured-video animate-onscroll">
+							<h3>Ensegnement</h3>
+							<iframe width="560" height="315" src="http://www.youtube.com/embed/FBorRZnqtMo?wmode=transparent" allowfullscreen></iframe>
+							<a href="#" class="button transparent button-arrow">Voir plus</a>
+						</div>
+						<!-- /Featured Video -->						<!-- Upcoming Events -->
+						<div class="sidebar-box white animate-onscroll">
+							<h3>Les evenements à venir</h3>
+							<ul class="upcoming-events">
+							
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">25</span>
+											<span class="month">DEC</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">5</span>
+											<span class="month">JAN</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">8</span>
+											<span class="month">JAN</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+							</ul>
+							<a href="#" class="button transparent button-arrow">Voir plus</a>
+						</div>
+						<!-- /Upcoming Events -->						<!-- Image Banner -->
+						<div class="sidebar-box image-banner animate-onscroll">
+							<a href="issues.html">
+								<img src="img/main-issues.jpg" alt="">
+								<h3>Les Discussions</h3>
+								<span class="button transparent button-arrow">Voir plus</span>
+							</a>
+						</div>
+						<!-- /Image Banner -->						<!-- Flickr Photos -->
+						<!--<div class="sidebar-box white flickr-photos animate-onscroll">
+							<h3>Nos Galeries</h3>
+							<ul class="flickr-feed">
+							</ul>
+						</div>-->
+						<!-- /Flickr Photos -->						<!-- Popular News -->
+						<div class="sidebar-box white animate-onscroll">
+							<h3>Pain quotidien</h3>
+							<ul class="popular-news">
+							
+								<!-- Blog Item -->
+								<li>
+									<div class="thumbnail">
+										<img src="img/blog/thumb1.jpg" alt="">
+									</div>
+									
+									<div class="post-content">
+										<h6><a href="blog-single-sidebar.html">Vestibulum ante</a></h6>
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+									</div>
+								</li>
+								<!-- /Blog Item -->
+								
+								<!-- Blog Item -->
+								<li>
+									<div class="thumbnail">
+										<img src="img/blog/thumb2.jpg" alt="">
+									</div>
+									
+									<div class="post-content">
+										<h6><a href="blog-single-sidebar.html">Sed in lacus ut enim</a></h6>
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+									</div>
+								</li>
+								<!-- /Blog Item -->
+								
+								<!-- Blog Item -->
+								<li>
+									<div class="thumbnail">
+										<img src="img/blog/thumb3.jpg" alt="">
+									</div>
+									
+									<div class="post-content">
+										<h6><a href="blog-single-sidebar.html">Nulla facillsi</a></h6>
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+									</div>
+								</li>
+								<!-- /Blog Item -->
+								
+							</ul>
+							
+						</div>
+						<!-- /Popular News -->						
+					</div>
+					<!-- /Sidebar -->
+					
+					
+					
+				
+				</div>
+				
+			</section>
+			<!-- /Section -->
+		
+		</section>
+
+		{% endblock %}
+
+
+
+		

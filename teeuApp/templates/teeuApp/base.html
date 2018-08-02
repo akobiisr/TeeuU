@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+		 {% load static %}
+	<!-- Meta Tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- Title -->
+		<title>EEU - Temple Universitaire</title>
+		
+		<!-- Google Fonts -->
+		<link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+		<link href='http://fonts.googleapis.com/css?family=Great+Vibes' rel='stylesheet' type='text/css'>
+		
+		<!-- Favicon -->
+		<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
+		<script defer src="{% static 'teeuApp/js/fontawesome-all.min.js' %}"></script>
+		<!-- Stylesheets -->
+		<link href="{% static 'teeuApp/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'teeuApp/css/fontello.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'teeuApp/css/flexslider.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'teeuApp/js/revolution-slider/css/settings.css' %}" rel="stylesheet" type="text/css" media="screen" />
+		<link href="{% static 'teeuApp/css/owl.carousel.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'teeuApp/css/css/responsive-calendar.css' %}" rel="stylesheet" type="text/css" media="screen">
+		<link href="{% static 'teeuApp/css/chosen.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'teeuApp/jackbox/css/jackbox.min.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'teeuApp/css/cloud-zoom.css'  %}" rel="stylesheet" type="text/css" />
+		<link href="{% static 'teeuApp/css/style.css' %}" rel="stylesheet" type="text/css">
+		<link href="{% static 'teeuApp/css/mystyle.css' %}" rel="stylesheet" type="text/css">
+
+		
+        <link rel='stylesheet' id='camera-css'  href="{% static 'teeuApp/css/camera.css' %}" type='text/css' media='all'> 
+
+		
+		<!--[if IE 9]>
+			<link rel="stylesheet" href="css/ie9.css">
+		<![endif]-->
+		
+		<!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<link href="css/jackbox-ie8.css" rel="stylesheet" type="text/css" />
+			<link rel="stylesheet" href="css/ie.css">
+        <![endif]-->
+		
+		<!--[if gt IE 8]>
+			<link href="css/jackbox-ie9.css" rel="stylesheet" type="text/css" />
+		<![endif]-->
+		
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="css/fontello-ie7.css">
+		<![endif]-->
+		
+		<style type="text/css">
+			.no-fouc {display:none;}
+	  	</style>
+		
+		<!-- jQuery -->
+		<script src="{% static 'teeuApp/js/jquery-1.11.0.min.js' %}"></script>
+		<script src="{% static 'teeuApp/js/jquery-ui-1.10.4.min.js' %}"></script>
+		
+		<!-- Preloader -->
+		<script src="{% static 'teeuApp/js/jquery.queryloader2.min.js' %}"></script>
+		
+		<script type="text/javascript">
+		$('html').addClass('no-fouc');
+		
+		$(document).ready(function(){
+			
+			$('html').show();
+			
+			var window_w = $(window).width();
+			var window_h = $(window).height();
+			var window_s = $(window).scrollTop();
+			
+			$("body").queryLoader2({
+				backgroundColor: '#f2f4f9',
+				barColor: 'rgb(0,149,213)',
+				barHeight: 4,
+				percentage:false,
+				deepSearch:true,
+				minimumTime:1000,
+				onComplete: function(){
+					
+					$('.animate-onscroll').filter(function(index){
+					
+						return this.offsetTop < (window_s + window_h);
+						
+					}).each(function(index, value){
+						
+						var el = $(this);
+						var el_y = $(this).offset().top;
+						
+						if((window_s) > el_y){
+							$(el).addClass('animated fadeInDown').removeClass('animate-onscroll');
+							setTimeout(function(){
+								$(el).css('opacity','1').removeClass('animated fadeInDown');
+							},2000);
+						}
+						
+					});
+					
+				}
+			});
+			
+		});
+		</script>
+		
+</head>
+	
+	<body class="sticky-header-on tablet-sticky-header">
+	
+		<div id="fb-root"></div>
+	<script>(function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0];
+	  if (d.getElementById(id)) return;
+	  js = d.createElement(s); js.id = id;
+	  js.src = "../../../connect.facebook.net/en_US/all.js#xfbml=1";
+	  fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));</script>		
+		<!-- Container -->
+		<div class="container">
+			<!-- Header -->
+			<header id="header" class="animate-onscroll sticky">
+				
+				<!-- Main Header -->
+				<div id="main-header">
+					
+					<div class="container">
+					
+					<div class="row">
+						
+						
+						
+						<!-- Logo -->
+						<div class="col-lg-3 col-md-3 col-sm-3">
+							
+							<a href="index.php"><img src="{% static 'teeuApp/img/logoEEU.jpeg' %}" alt="Logo"></a>
+							
+						</div>
+						<!-- /Logo -->
+						
+						
+						
+						<!-- Main Quote -->
+						<div class="col-lg-4 col-md-4 col-sm-3 verset">
+							{% if versetDuJour %}
+							{% for vers in versetDuJour %}
+							<blockquote> 
+								{{vers.textDuVerset}} <a href=""><span id = "logo">{{vers.verset}}</span></a>
+							</blockquote>
+							{% endfor %}
+							{% else %}
+    						<h5>Ouff, Aucun de verset pour ce Jour.</h5>
+							{% endif %}
+							
+							<!-- Display the countdown timer in an element -->
+
+							{% if evenement %}
+							{% for vers in evenement %}
+							<input type="hidden" id ="jour" value="{{vers.date_even|date:'M d, Y, H:i'}}"/>
+							<input type="hidden" id ="titre" value="{{vers.titre}}"/>
+							{% endfor %}
+							{% else %}
+    						
+							{% endif %}
+
+
+<script>
+// Set the date we're counting down to
+date =document.getElementById("jour").value;
+titre =document.getElementById("titre").value;
+var countDownDate = new Date(date).getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get todays date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now an the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  //document.getElementById("countdown").innerHTML ='<dl class="count_item"><dt class="main_title">'+ days
+  //+'</dt><dd><span>Jours</span></dd></dl>  </div>'
+  // days + "d " + hours + "h "
+ //+ minutes + "m " + seconds + "s ";
+
+
+document.getElementById("countdown").innerHTML = '<dl class="count_item"><dt class="main_title">'+days+'</dt><dd><span>Jrs</span></dd></dl></div> <dl class="count_item"><dt class="main_title">'+hours+'</dt><dd><span>Hrs</span></dd></dl></div><dl class="count_item"><dt class="main_title">'+minutes+'</dt><dd><span>mn</span></dd></dl> <dl class="count_item"><dt class="main_title">'+seconds+'</dt><dd><span>secs</span></dd></dl>';
+  // If the count down is finished, write some text
+document.getElementById("countdown2").innerHTML = '<dl class="count_item"><dt class="main_title">'+days+'</dt><dd><span>Jours</span></dd></dl></div> <dl class="count_item"><dt class="main_title">'+hours+'</dt><dd><span>Heurs</span></dd></dl></div><dl class="count_item"><dt class="main_title">'+minutes+'</dt><dd><span>mn</span></dd></dl><dl class="count_item"><dt class="main_title">'+seconds+'</dt><dd><span>secs</span></dd></dl>';
+  if (distance <= 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = '<dl class="count_item"><dt class="main_title">00</dt><dd><span>Jrs</span></dd></dl></div> <dl class="count_item"><dt class="main_title">00</dt><dd><span>Hrs</span></dd></dl></div><dl class="count_item"><dt class="main_title">00</dt><dd><span>mn</span></dd></dl> <dl class="count_item"><dt class="main_title">00</dt><dd><span>secs</span></dd></dl>';
+    document.getElementById("countdown2").innerHTML = '<dl class="count_item"><dt class="main_title">00</dt><dd><span>Jours</span></dd></dl></div> <dl class="count_item"><dt class="main_title">00</dt><dd><span>Heurs</span></dd></dl></div><dl class="count_item"><dt class="main_title">00</dt><dd><span>mn</span></dd></dl><dl class="count_item"><dt class="main_title">00</dt><dd><span>secs</span></dd></dl>';
+  }
+}, 1000);
+</script>
+							<!--<div class="slideshow">
+
+							{% if verset %}
+    							<ul>
+    								{% for vers in verset %}
+
+        								<li> <span class="description_slideshow"><span> {{vers.text_du_verset}}<br> <span class = "display-verset">{{vers.verset}}</span> </span></span> </li>
+    								{% endfor %}
+    							</ul>
+							{% else %}
+    						<p>No polls are available.</p>
+							{% endif %}
+						</div>-->
+							
+						</div>
+						<!-- /Main Quote -->
+						
+						
+							
+						<!-- Newsletter -->
+						<div class="col-lg-4 col-md-4 col-sm-5">
+							
+							<form id="newsletter">
+							{% if evenement %}
+							{% for vers in evenement %}
+							<h5>{{vers.titre}} dans:</h5>
+							{% endfor %}
+							{% else %}
+    						<h5>Aucun evenement encours</h5>
+							{% endif %}	
+								
+								<!--<h5>camps des jeunes dans:</h5>-->
+								
+								<div class="newsletter-form">
+								
+									<div id="countdown"></div>
+						
+									<div class="newsletter-submit">
+										{% if evenement %}
+							{% for vers in evenement %}
+							<input type="submit" value="">
+										<i class="icons icon-right-thin"></i>
+							{% endfor %}
+							{% else %}
+    						
+							{% endif %}	
+										
+									</div>
+									
+								</div>
+							</form>
+							
+						</div>
+						
+						<!--<p id="demo"></p>-->
+						<div class="col-lg-1 col-md-1 col-sm-1 connexion">
+							  {% if user.is_authenticated %}
+							  <a href=""> {{ user.get_full_name }}</a>
+    						 <a href="{% url 'logout'%}?next={{request.path}}"> <i>Deconnexion </i> </a> 
+  							 {% else %}
+    						 <a href="{% url 'login'%}?next={{request.path}}">Connexion</a>  
+  							 {% endif %} 
+
+							
+							<!-- <ul id="navigation"  >
+						
+						
+						<li class="t">
+						
+							 <span><i class="fas fa-user "></i></span>
+							
+							<ul>
+							
+								<li><a href="quiSommeNous.php">Nouveau</a></li>
+								
+								<li><a href="contact.php">Connexion</a></li>
+								
+							</ul>
+						</li>
+					</ul>-->
+							
+							
+						</div>
+						<!-- /Newsletter -->
+						
+						
+						
+					</div>
+					
+					</div>
+					
+				</div>
+				<!-- /Main Header -->
+				
+				
+				{% block menu %}  
+
+				{% endblock %}
+				
+			</header>
+			<!-- /Header -->
+
+
+		<!-- Header <div = "container"-->
+		
+			
+	
+				{% block carousel %}  
+
+				{% endblock %}
+
+
+
+
+
+
+
+
+
+
+			{% block content %}  
+
+			{% endblock %}
+
+			
+			<!-- Footer -->
+
+							
+				
+				<!-- Main Footer -->
+			<!--	 <footer id="footer">
+				<div id="main-footer">
+					<div class="row">
+
+					<div class="col-lg-12 col-md-12 col-sm-12 animate-onscroll  menu-container">
+
+					<div id = "footMenu">
+								<ul class = "Menu">
+									<li><a href="#">Accueil</a></li>
+									
+									<li><a href="#">Heures de cultes</a></li>
+									<li><a href="#">Blog</a></li> 
+									<li><a href="#">Centre de Formation</a></li>
+									<li><a href="#">Contactez nous</a></li>
+								</ul>
+							</div>
+					</div>	
+					</div>
+					</div>
+						<div class="col-lg-3 col-md-3 col-sm-6 animate-onscroll">
+							
+							<h4>Text Widget</h4>
+							
+							<p>Aenean auctor wisi et urna. Aliquam erat volutpat. Duis ac turpis. Integer rutrum ante eu lacus. Vestibulum libero nisl, porta vel.<br><br>
+Vivamus eget nibh. Etiam cursus leo vel metus. Nulla facilisi. Aenean nec eros. Vestibulum ante ipsum.</p>
+							
+						</div>
+						
+						<div class="col-lg-3 col-md-3 col-sm-6 animate-onscroll">
+							
+							<h4>Campaign</h4>
+								
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 menu-container">
+								
+								<ul class="menu">
+									<li><a href="#">About</a></li>
+									<li><a href="#">Issues</a></li>
+									<li><a href="#">Media</a></li>
+									<li><a href="#">Blog</a></li> 
+									<li><a href="#">Shop</a></li>
+									<li><a href="#">Contact us</a></li>
+								</ul>
+								
+							</div>
+							
+							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 menu-container">
+								
+								<ul class="menu">
+									<li><a href="#">Email updates</a></li>
+									<li><a href="#">Find events</a></li>
+									<li><a href="#">Make calls</a></li>
+									<li><a href="#">Register to vote</a></li> 
+									<li><a href="#">Donate</a></li>
+									<li><a href="#">Volunteer</a></li>
+								</ul>
+								
+							</div>
+							
+						</div>
+						
+						<div class="col-lg-3 col-md-3 col-sm-6 twitter-widget-area animate-onscroll">
+							
+							<h4>Latest Tweets</h4>
+							
+							<div class="twitter-widget">
+                                
+							</div>
+							
+							<a href="#" class="button twitter-button">Follow us on twitter</a>
+							
+						</div>
+						
+						<div class="col-lg-3 col-md-3 col-sm-6 animate-onscroll">
+							
+							<h4>Like us on facebook</h4>
+							
+							<iframe src="http://www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2FFacebookDevelopers&amp;width=270&amp;height=240&amp;colorscheme=dark&amp;header=false&amp;show_faces=true&amp;stream=false&amp;show_border=false" style="border:none; overflow:hidden; width:100%; height:240px;"></iframe>
+							
+						</div>
+						
+					</div>
+					
+				</div>-->
+				<!-- /Main Footer --> 
+				
+				
+				
+				
+				<!-- Lower Footer -->
+				<div id="lower-footer">
+					
+					<div class="row">
+						
+						<div class="col-lg-4 col-md-4 col-sm-4 animate-onscroll">
+						
+							<p class="copyright">© 2018 TEEU. All Rights Reserved.</p>
+							
+						</div>
+						
+						<div class="col-lg-8 col-md-8 col-sm-8 animate-onscroll">
+							
+							<div class="social-media">
+								<ul class="social-icons">
+									<li class="facebook"><a href="#" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+									<li class="twitter"><a href="#" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+									<li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li>
+									<li class="youtube"><a href="#" class="tooltip-ontop" title="Youtube"><i class="icons icon-youtube-1"></i></a></li>
+									<li class="flickr"><a href="#" class="tooltip-ontop" title="Flickr"><i class="icons icon-flickr-4"></i></a></li>
+									<li class="email"><a href="#" class="tooltip-ontop" title="Email"><i class="icons icon-mail"></i></a></li>
+									<li class="instagram"><a href="#" class="tooltip-ontop" title="Instagram"><i class="icons icon-instagram"></i></a></li>
+								</ul>
+							</div>
+							
+						</div>
+						
+					</div>
+					
+				</div>
+				<!-- /Lower Footer -->
+				
+			
+			</footer>
+			<!-- /Footer -->
+			
+			<!-- Back To Top -->
+			<a href="#" id="button-to-top"><i class="icons icon-up-dir"></i></a>
+		
+		</div>
+		<!-- /Container -->	
+	
+		<!-- JavaScript -->
+		
+		<!-- Bootstrap -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/bootstrap.min.js' %}"></script>
+		
+		<!-- Modernizr -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/modernizr.js' %}"></script>
+		
+		<!-- Sliders/Carousels -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/jquery.flexslider-min.js' %}"></script>
+		<script type="text/javascript" src=" {% static 'teeuApp/js/owl.carousel.min.js' %}"></script>
+		
+		<!-- Revolution Slider  -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/revolution-slider/js/jquery.themepunch.plugins.min.js' %}"></script>
+		<script type="text/javascript" src=" {% static 'teeuApp/js/revolution-slider/js/jquery.themepunch.revolution.min.js' %}"></script>
+		
+		<!-- Calendar -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/js/responsive-calendar.min.js' %}"></script>
+		
+		<!-- Raty -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/jquery.raty.min.js' %}"></script>
+		
+		<!-- Chosen -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/chosen.jquery.min.js' %}"></script>
+		
+		<!-- jFlickrFeed -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/jflickrfeed.min.js' %}"></script>
+		
+		<!-- InstaFeed -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/instafeed.min.js' %}"></script>
+		
+		<!-- Twitter -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/twitter/jquery.tweet.js' %}"></script>
+		
+		<!-- MixItUp -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/jquery.mixitup.js' %}"></script>
+
+		<!-- Countdown -->
+		<script type="text/javascript" src="{% static 'teeuApp/js/jquery.countdown.min.js' %}"></script> 
+		
+		<!-- JackBox -->
+		<script type="text/javascript" src=" {% static 'teeuApp/jackbox/js/jackbox-packed.min.js' %}"></script>
+		
+		<!-- CloudZoom -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/zoomsl-3.0.min.js' %}"></script>
+		
+		<!-- Main Script -->
+		<script type="text/javascript" src=" {% static 'teeuApp/js/script.js' %}"></script>
+		
+		
+		<!--[if lt IE 9]>
+			<script type="text/javascript" src="js/jquery.placeholder.js"></script>
+			<script type="text/javascript" src="js/script_ie.js"></script>
+		<![endif]-->
+		
+
+			  
+    <script src=" {% static 'teeuApp/js/js/modernizr-latest.js' %}"></script> 
+    <script type='text/javascript' src=" {% static 'teeuApp/js/js/jquery.min.js' %}"></script>
+    <script type='text/javascript' src=" {% static 'teeuApp/js/js/fancybox/jquery.fancybox.pack.js' %}"></script>
+    
+    <script type='text/javascript' src=" {% static 'teeuApp/js/js/jquery.mobile.customized.min.js' %}"></script>
+    <script type='text/javascript' src=" {% static 'teeuApp/js/js/jquery.easing.1.3.js' %}"></script> 
+    <script type='text/javascript' src=" {% static 'teeuApp/js/js/camera.min.js' %}"></script> 
+     
+     {% block javascript %}
+     {% endblock %}
+    
+    
+    <script>
+        jQuery(function(){
+            
+            jQuery('#camera_wrap_4').camera({
+                height: '600',
+                loader: 'bar',
+                pagination: false,
+                thumbnails: false,
+                hover: false,
+                opacityOnGrid: false,
+                imagePath: 'img/'
+            });
+
+        });
+    </script>
+			
+	<!-- Start of Rocket.Chat Livechat Script -->
+<script type="text/javascript">
+(function(w, d, s, u) {
+	w.RocketChat = function(c) { w.RocketChat._.push(c) }; w.RocketChat._ = []; w.RocketChat.url = u;
+	var h = d.getElementsByTagName(s)[0], j = d.createElement(s);
+	j.async = true; j.src = 'http://192.168.1.14:3000/packages/rocketchat_livechat/assets/rocketchat-livechat.min.js?_=201702160944';
+	h.parentNode.insertBefore(j, h);
+})(window, document, 'script', 'http://192.168.1.14:3000/livechat');
+</script>
+<!-- End of Rocket.Chat Livechat Script -->	
+	</body>
+
+</html>

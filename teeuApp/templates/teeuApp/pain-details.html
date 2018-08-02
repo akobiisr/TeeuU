@@ -1,0 +1,683 @@
+
+{% extends "teeuApp/base.html" %}
+	
+
+{% load static %}
+
+				
+				{% block menu %}
+				<!-- Lower Header -->
+				<div id="lower-header">
+					
+					<div class="container">
+					
+					<div id="menu-button">
+						<div>
+						<span></span>
+						<span></span>
+						<span></span>
+						</div>
+						<span>Menu</span>
+					</div>
+					<ul id = "tabdebut">
+					
+					<ul id="navigation">
+						
+						<!-- Home -->
+						<li class="home-button ">
+						
+							<a href="{% url 'index'%}"><i class="icons icon-home"></i></a>
+							
+							
+						</li>
+						<!-- /Home -->
+						
+						<!-- Pages -->
+						<li >
+						
+							<span>A propos de nous</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'index' %}">Qui sommes nous ?</a></li>
+								<li><a href="{% url 'Organisation' %}">Notre Organisation</a></li>
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								<li><a href="{% url 'Contact' %}">Nous Contacter</a></li>
+								
+							</ul>
+							
+						</li>
+						<!-- /Pages -->
+						
+						<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								<li><a href="{% url 'galerie' %}">Galerie</a></li>	
+								<li><a href="{% url 'Enseignements' %}">Enseignements</a></li>	
+								<!--<li><a href="mission2.php">Notre mission</a></li>
+								<li><a href="testimonials.html">Nos eglises</a></li>-->
+								
+							</ul>
+							
+						</li>
+						<!-- Galerie -->
+						
+						<!-- Galerie -->
+
+						<!-- /Get Involved -->
+						<!-- Events -->
+						
+						<!-- /Events -->
+						
+						<!-- Media -->
+					<!--	<li >
+						
+							<span>Media</span>
+							
+							<ul>
+							
+								
+										<li><a href="ecouter.php"> Ecouter la parole</a></li>
+										<li><a href="regarder.php"> Regarder les videos</a></li>
+										<li><a href="galerie.php">Gallerie</a></li>
+										<li><a href="librairie.php">Notre librairie</a></li>
+								
+						
+							</ul>
+							
+						</li>-->
+						<!-- /Media -->
+						
+						
+						
+						
+						<li >
+							<a href="{% url 'evenements' %}">Nos Evenements</a>
+						</li> 
+						
+						
+						<!-- Features -->
+						<!--<li >
+						
+							<span>Features</span>
+							
+							<ul>
+							
+								<li><a href="features-typography.html">Typography</a></li>
+								<li><a href="features-shortcodes.html">Shortcodes</a></li>
+								
+							</ul>
+							
+						</li> -->
+						<!-- /Features -->
+						
+						
+						<!-- Blog -->
+						<li >
+						
+								<a href="{% url 'pain' %}">Pain quotidien </a>
+									
+						</li>
+						<!-- /Blog -->
+						
+						<!-- Blog -->
+						<li class="current-menu-item">
+						
+								<a href="{% url 'discussion' %}">Discussion </a>
+									
+						</li>
+						<!-- /Blog -->
+
+						
+						<!-- Shop -->
+						<!--<li >
+						
+							
+							
+								<a href="shop-frontpage.html">Notre librairie</a>
+								
+								
+							
+						</li>
+						 /Shop -->
+						
+						<!-- Donate -->
+						<li class="donate-button ">
+							<span>Donation</span>
+							<ul>
+							<li><a href="{% url 'don' %}">Faire un don</a></li>
+							<li><a href="{% url 'implique' %}">Impliquez-vous</a></li>
+							</ul>
+						</li>
+						<!-- /Donate -->
+						
+					</ul>
+
+				</ul>
+					
+					</div>
+					
+				</div>
+				<!-- /Lower Header -->
+				{% endblock %}
+				
+
+				
+{% block content %}
+			
+			
+		<section id="content">	
+			
+			<!-- Page Heading -->
+			<section class="section page-heading animate-onscroll">
+				
+				<h1>{% for pain in pain_detail %}
+					 {{pain.titre}} 
+					 {%endfor%}</h1>
+
+				<p class="breadcrumb">
+					<a href="{% url 'index' %}">Accueil</a>
+					{% for pain in pain_detail %}
+					 /{{pain.titre}} 
+					 {%endfor%}
+				</p>
+				
+			</section>
+			<!-- Page Heading -->
+			
+
+			
+			<!-- Section -->
+			<section class="section full-width-bg gray-bg">
+				
+				<div class="row">
+				
+					<div class="col-lg-9 col-md-9 col-sm-8">
+						
+						{% for pain in pain_detail %}
+						<!-- Single Blog Post -->
+						<div class="blog-post-single">
+							
+							<!-- Portfolio Slideshow -->
+							<div class="portfolio-slideshow flexslider animate-onscroll">
+								
+							<!--	<ul class="slides">
+								
+									<li><img src="{% static 'teeuApp/img/blog/slide1.jpg' %}" alt=""></li>
+									<li><img src="{% static 'teeuApp/img/blog/slide2.jpg' %}" alt=""></li>
+									<li><img src="{% static 'teeuApp/img/blog/slide3.jpg' %}" alt=""></li>												
+								</ul>
+								-->
+								<img src="{{pain.image_dispaly.url}}" alt="">
+							</div>
+							<!-- /Portfolio Slideshow -->
+							
+							<div class="post-meta animate-onscroll">
+								<h2>{{pain.titre}}</h2>
+								<span>Par <a href="#">{{pain.nom}}</a></span>
+								<span>{{pain.date_enreg}}</span>
+								<span><a href="blog-single-sidebar.html#comments">13 Comments</a></span>
+							</div>
+							
+							<div class="post-content">
+				
+								<p class="animate-onscroll">{{pain.Text|safe|linebreaks}}</p>
+							
+							</div>
+							
+							
+							<!-- Post Meta Track -->
+							<div class="post-meta-track animate-onscroll">
+								
+								<table class="project-details">
+									
+									<tr>
+										<td class="share-media">
+											<ul class="social-share">	
+												<li>Share this:</li>
+												<li class="facebook"><a href="#" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+												<li class="twitter"><a href="#" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+												<li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li>
+												<li class="pinterest"><a href="#" class="tooltip-ontop" title="Pinterest"><i class="icons icon-pinterest-3"></i></a></li>
+												<li class="email"><a href="#" class="tooltip-ontop" title="Email"><i class="icons icon-mail"></i></a></li>
+											</ul>
+										</td>
+										<!--<td class="tags">Tags: <a href="#">meeting</a>, <a href="#">politics</a>, <a href="#">photos</a></td>-->
+									</tr>
+									
+								</table>
+								
+							</div>
+							<!-- /Post Meta Track -->
+							
+							
+							
+							<!-- Pagination -->
+						<!--	<div class="row animate-onscroll">
+								
+								<div class="col-lg-6 col-md-6 col-sm-6 button-pagination align-left">
+									<a href="#" class="button big previous">Prev post</a>
+								</div>
+								
+								<div class="col-lg-6 col-md-6 col-sm-6 button-pagination align-right">
+									<a href="#" class="button big next">Next post</a>
+								</div>
+								
+							</div>-->
+							<!-- /Pagination -->
+							
+							
+							<!-- Post Author -->
+						<!--	<div class="post-author animate-onscroll">
+								
+								<h4>About Admin</h4>
+								
+								<div class="author-info">
+									<div class="author-img">
+										<img src="{% static 'teeuApp/img/testimonials/profile9.jpg' %}" alt="">
+									</div>
+									<div class="author-description">
+										<p>Vestibulum sed ante. Donec sagittis euismod purus.Sed ut perspiciatis sit voluptatem accusantium doloremque laudantium, totam rem aperiam,eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. </p>
+									</div>
+								</div>
+								
+							</div>-->
+							<!-- /Post Author -->
+							
+						</div>	
+						<!-- /Single Blog Post -->	
+							
+							{% endfor %}
+						<!-- Related Articles -->
+						{% if pain_quotidient%}
+						<div class="related-articles">
+							
+							<h3 class="animate-onscroll">Pain quotidien passé</h3>
+							
+							<div class="row">
+								{% for pain in pain_quotidient %}
+								
+								<div class="col-lg-4 col-md-4 col-sm-4">
+									
+									<!-- Blog Post -->
+									<div class="blog-post animate-onscroll">
+										
+										<div class="post-image">
+											<img src="{{ pain.image_dispaly.url}}" alt="">
+										</div>
+										
+										<h4 class="post-title"><a href="Pain-details?id={{pain.id}}">{{pain.titre}}</a></h4>
+										
+										<div class="post-meta">
+											<span>Par <a href="#">{{pain.nom}}</a></span>
+											<span>{{pain.date_enreg}}</span>
+										</div>
+										
+									</div>
+									<!-- /Blog Post -->
+								</div>	
+
+								{% endfor %}
+							</div>
+							
+						</div>
+						{% endif %}
+						<!-- /Related Articles -->
+						
+						<!-- Post Comments -->
+						<div class="post-comments">
+								<h3 class="animate-onscroll">Commentaires</h3>
+
+							{% if liste_comment_user %}
+									{%for liste in liste_comment_user %}
+
+							<div class="comment animate-onscroll">
+								<div class="comment-author">
+									<img src="{% static 'teeuApp/img/testimonials/profile1.jpg' %}" alt="">
+								</div>
+
+								<div class="comment-text">
+									<ul>
+										<li class="author-meta"> {{liste.user.get_full_name}} </li>
+										<li class="comment-content"> {{liste.Commentaire}}</li>
+										<li class="comment-meta">{{liste.date_commentaire}}</li>
+									</ul>
+									
+								</div>
+							</div>
+
+							{% endfor %}
+							  <p id="commente_test">
+						
+							</p>
+								{% else %}
+								<div id='no-comment'>
+								 <h3>aucun commentaire</h3>	
+								</div>
+								
+								 <p id="commente_test">
+						
+							</p>
+								{%endif%}
+
+							</div>
+
+
+
+						<!-- /Post Comments -->
+						
+
+
+
+
+
+
+						<h3 class="animate-onscroll">Laisser un commentaire</h3>
+				
+							{% if pain_detail %}
+							 {% for pain in pain_detail %}
+						<form  class="animate-onscroll" method="post" id="comment-form">
+							{% endfor %}
+
+							{% endif %}
+
+							{% csrf_token %}
+								{{comment.non_field_errors}}
+							
+							<div class="inline-inputs">
+								<div class="col-lg-12 col-md-12 col-sm-12">
+									{{comment.comment.errors}}
+								<!--	<label for={{form.comment.id_for_label}}>Votre Commentaire</label>-->
+									{{comment.comment}}
+								</div>
+								
+							</div>
+							
+							 {% if user.is_authenticated %}
+							  <input type="hidden" name="user" value="{{user.id}}" id ="id_user">
+							  {% endif %} 
+
+							  {% for pain in pain_detail %}
+							   <input type="hidden" name="pain" value="{{pain.id}}" id ="id_pain">
+							  {% endfor %}
+							 
+							<button type="button" id="commenter"> Commente</button>
+							
+						</form>
+						
+					</div>
+
+					
+					
+					
+					<!-- Sidebar -->
+					<div class="col-lg-3 col-md-3 col-sm-4 sidebar">
+						
+												<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="#">
+								<i class="icons icon-calendar"></i>
+								<h4>Find Events</h4>
+								<p>Lorem ipsum dolor sit amet</p>
+							</a>
+						</div>
+						
+						<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="#">
+								<i class="icons icon-check"></i>
+								<h4>Register to vote</h4>
+								<p>Nemo enim ipsam</p>
+							</a>
+						</div>
+						
+						<div class="banner-wrapper">
+							<a class="banner animate-onscroll" href="#">
+								<i class="icons icon-user"></i>
+								<h4>Volunteer</h4>
+								<p>Pellentesque sed dolor</p>
+							</a>
+						</div>
+						
+						<div class="banner-wrapper">
+							<div class="banner donate-banner animate-onscroll">
+							
+								<h5>Make a <strong>quick donation</strong> here</h5>
+								<form>
+								
+									<input id="donate-amount-1" type="radio" name="donate-amount">
+									<label for="donate-amount-1">$5</label>
+									
+									<input id="donate-amount-2" type="radio" name="donate-amount">
+									<label for="donate-amount-2">$25</label>
+									
+									<input id="donate-amount-3" type="radio" name="donate-amount">
+									<label for="donate-amount-3">$100</label>
+									
+									<input type="submit" value="Donate">
+									
+								</form>
+							</div>
+						</div>						<div class="social-media animate-onscroll">
+							<span class="small-caption">Get connected:</span>
+							<ul class="social-icons">
+								<li class="facebook"><a href="#" class="tooltip-ontop" title="Facebook"><i class="icons icon-facebook"></i></a></li>
+								<li class="twitter"><a href="#" class="tooltip-ontop" title="Twitter"><i class="icons icon-twitter"></i></a></li>
+								<li class="google"><a href="#" class="tooltip-ontop" title="Google Plus"><i class="icons icon-gplus"></i></a></li>
+								<li class="youtube"><a href="#" class="tooltip-ontop" title="Youtube"><i class="icons icon-youtube-1"></i></a></li>
+								<li class="flickr"><a href="#" class="tooltip-ontop" title="Flickr"><i class="icons icon-flickr-4"></i></a></li>
+								<li class="email"><a href="#" class="tooltip-ontop" title="Email"><i class="icons icon-mail"></i></a></li>
+							</ul>
+							<ul class="social-buttons">
+								<li>
+									<iframe src="http://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;width&amp;layout=standard&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=35" style="border:none; overflow:hidden; height:21px; padding-top:1px; width:50px;"></iframe>
+								</li>
+								<li class="facebook-share">
+									<div class="fb-share-button" data-href="https://developers.facebook.com/docs/plugins/" data-type="button_count"></div>
+								</li>
+								<li class="twitter-share">
+									<a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+								</li>
+							</ul>
+						</div>						<!-- Featured Video -->
+						<div class="sidebar-box white featured-video animate-onscroll">
+							<h3>Featured Video</h3>
+							<iframe width="560" height="315" src="http://www.youtube.com/embed/FBorRZnqtMo?wmode=transparent" allowfullscreen></iframe>
+							<a href="#" class="button transparent button-arrow">More videos</a>
+						</div>
+						<!-- /Featured Video -->						<!-- Upcoming Events -->
+						<div class="sidebar-box white animate-onscroll">
+							<h3>Upcoming Events</h3>
+							<ul class="upcoming-events">
+							
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">25</span>
+											<span class="month">DEC</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">5</span>
+											<span class="month">JAN</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+								<!-- Event -->
+								<li>
+									<div class="date">
+										<span>
+											<span class="day">8</span>
+											<span class="month">JAN</span>
+										</span>
+									</div>
+									
+									<div class="event-content">
+										<h6><a href="event-post-v2.html">Sed in lacus ut enim</a></h6>
+										<ul class="event-meta">
+											<li><i class="icons icon-clock"></i> 4:00 pm - 6:00 pm</li>
+											<li><i class="icons icon-location"></i> 340 W 50th St.New York</li>
+										</ul>
+									</div>
+								</li>
+								<!-- /Event -->
+								
+							</ul>
+							<a href="#" class="button transparent button-arrow">More events</a>
+						</div>
+						<!-- /Upcoming Events -->						<!-- Image Banner -->
+						<div class="sidebar-box image-banner animate-onscroll">
+							<a href="issues.html">
+								<img src="img/main-issues.jpg" alt="">
+								<h3>The main issues</h3>
+								<span class="button transparent button-arrow">Find out more</span>
+							</a>
+						</div>
+						<!-- /Image Banner -->						<!-- Flickr Photos -->
+						<div class="sidebar-box white flickr-photos animate-onscroll">
+							<h3>Flickr Photos</h3>
+							<ul class="flickr-feed">
+							</ul>
+						</div>
+						<!-- /Flickr Photos -->						<!-- Popular News -->
+						<div class="sidebar-box white animate-onscroll">
+							<h3>Popular news</h3>
+							<ul class="popular-news">
+							
+								<!-- Blog Item -->
+								<li>
+									<div class="thumbnail">
+										<img src="img/blog/thumb1.jpg" alt="">
+									</div>
+									
+									<div class="post-content">
+										<h6><a href="blog-single-sidebar.html">Vestibulum ante</a></h6>
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+									</div>
+								</li>
+								<!-- /Blog Item -->
+								
+								<!-- Blog Item -->
+								<li>
+									<div class="thumbnail">
+										<img src="img/blog/thumb2.jpg" alt="">
+									</div>
+									
+									<div class="post-content">
+										<h6><a href="blog-single-sidebar.html">Sed in lacus ut enim</a></h6>
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+									</div>
+								</li>
+								<!-- /Blog Item -->
+								
+								<!-- Blog Item -->
+								<li>
+									<div class="thumbnail">
+										<img src="img/blog/thumb3.jpg" alt="">
+									</div>
+									
+									<div class="post-content">
+										<h6><a href="blog-single-sidebar.html">Nulla facillsi</a></h6>
+										<div class="post-meta">
+											<span>by <a href="#">admin</a></span>
+											<span>October 01, 2013 11:28AM</span>
+										</div>
+									</div>
+								</li>
+								<!-- /Blog Item -->
+								
+							</ul>
+							
+						</div>
+						<!-- /Popular News -->						
+						
+					</div>
+					<!-- /Sidebar -->
+					
+					
+					
+				
+				</div>
+				
+			</section>
+			<!-- /Section -->
+		
+		</section>
+
+		{% endblock %}
+
+{% block javascript %}
+   <script>
+
+	$("#commenter").click(function() {
+		var comment = $("#id_comment").val();
+		var id_user = $("#id_user").val();
+		var id_pain = $("#id_pain").val();
+		$("#no-comment").remove();
+		if (comment != ''){
+		 $("#commente_test").append('<div class="comment animate-onscroll"> <div class="comment-author"> <img src="{% static 'teeuApp/img/testimonials/profile1.jpg' %}" alt=""> </div> <div class="comment-text"> <ul> <li class="author-meta"> {{liste.user.get_full_name}} </li> <li class="comment-content">'+comment+'</li> <li class="comment-meta">maintenant</li></ul> </div> </div>');
+		/* $("#id_comment").empty();*/
+
+		$.ajax({
+			type: 'GET',
+		 	url: '/Temple-Universitaire/comment/',
+		 	data:'json',
+		 	data: {
+		 		'commentaire':comment,
+		 		'user':id_user,
+		 		'pain':id_pain,
+		 	},
+		 	
+		 	success:function(){
+		 		$("#id_comment").val("");
+		 	}
+
+		 });
+	}
+	});
+   </script>
+
+{% endblock %}
+
+
+                           
+								
+									
+								
+
+								
+									
+								

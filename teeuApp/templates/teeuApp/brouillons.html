@@ -1,0 +1,80 @@
+
+{% block content %}
+  <h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+
+
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+
+        {% for error in field.errors %}
+          <p style="color: red">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+
+
+
+
+    <button type="submit">Sign up</button>
+  </form>
+{% endblock %}
+
+
+
+
+{% load static %}
+
+<link href="{% static 'teeuApp/css/mystyle.css' %}" rel="stylesheet" type="text/css">
+<link href="{% static 'teeuApp/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+
+{% block content %}
+
+<body class="body-login">
+    <div class="loginBox">
+        <img src="{% static 'teeuApp/img/logoEEU2.jpeg' %}" class="img-rounded user">
+        <h2> Connectez-vous ici</h2>
+        <form method="post" action="{% url 'signup' %}">
+            {% csrf_token %}
+            
+
+            {% if form.errors %}
+                <span class=" label-login">
+                   {{form.errors}}
+                </span>
+                {% endif %}
+
+                {% if form.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+            <p>Login</p>
+            <input type="text" name="username" placeholder="Entrer login">
+
+            <p>first_name</p>
+            <input type="text" name="first_name" placeholder="Entrer login">
+
+            <p>last_name</p>
+            <input type="text" name="last_name" placeholder="Entrer login">
+
+            <p>email</p>
+            <input type="text" name="email" placeholder="Entrer login">
+
+            <p>password1</p>
+            <input type="password" name="password1" placeholder="********">
+
+            <p>password2</p>
+            <input type="password" name="password2" placeholder="********">
+             
+            <input type="submit" name="" value="Connexion">
+        </form>
+    </div>
+</body>
+
+{% endblock content %}
